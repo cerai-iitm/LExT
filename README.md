@@ -21,12 +21,6 @@ The final **LExT Score** is computed by aggregating the plausibility and faithfu
 
 ## Repository Structure
 
-- **trustworthiness.py**  
-  Entry point for computing the LExT Score. It calculates:
-  - Plausibility (using functions in `metrics/plausibility.py`)
-  - Faithfulness (using functions in `metrics/faithfulness.py`)
-  - Final trustworthiness as the harmonic mean of the two.
-
 - **metrics/**  
   Contains modules that compute various metrics:
   - `plausibility.py`: Computes plausibility by averaging correctness and consistency.
@@ -36,11 +30,15 @@ The final **LExT Score** is computed by aggregating the plausibility and faithfu
   - `qag.py`: Generates and evaluates questions from the explanation.
   - `counterfactual.py`: Computes counterfactual faithfulness by flipping the label.
   - `contextual.py`: Computes contextual faithfulness by redacting important words.
+  - `trustworthiness.py` : Entry point for computing the LExT Score as an aggregate of plausibility and faithfulness. 
 
 - **src/**  
   Contains utility and helper functions:
   - `basic_functions.py`: Provides functions for model calls and predictions.
   - `utils.py`: Provides helper functions for saving outputs to CSV (located in `data/references.csv`).
+    
+- **train.ipynb**
+  Main workbook with guidelines on importing the required packages and running the score. Also helps execute indiviudal metrics for analysis.  
 
 ---
 
@@ -63,7 +61,7 @@ pip install -r requirements.txt
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/y/lext.git
+    git clone https://github.com/cerai-iitm/LExT.git
     cd lext
     ```
 
